@@ -1,0 +1,120 @@
+
+
+# this parameterfile contains external information needed to run pseudogene_mask.pl
+# please change all variables so they contain your local information
+# if you plan to run the program on whole genome GTF files you can leave
+# the Twinscan parameters at the end of this file untouched (the program will ignore them)
+# if you do want to run twinscan, you must have the twinscan_driver installed
+# please ask the authors for details
+
+# locations of external programs used
+
+# wublast - do NOT use NCBI blast, this will not understand the input parameters
+
+wublast = /bio/bin/blast
+
+# you can download est2genome at http://www.well.ox.ac.uk/~rmott/ESTGENOME/est_genome.shtml
+
+est2genome = /bio/bin/est2genome
+
+# if you don not want to install sim4, pseudogene_mask.pl will use est2genome instead.
+# this will slow down the program a bit.
+# you can download sim4 from eg http://globin.cse.psu.edu/globin/html/docs/sim4.html
+
+sim4 = /bio/bin/sim4
+
+# locations of databases and files for the intron_alignment method
+
+# tmpdir is for writing temporary files and directories
+
+tmpdir = /tmp/
+
+# give species and chromosome of inputfile (chromosome will be ignored when running twinscan)
+
+species = human
+
+# parent blastfile contains a nucleotide blast database of putative parent sequences
+# the program expects files named (blastfile).xns, (blastfile).xnd, (blastfile).xnt
+
+parent_blastfile = /extra/pseudogene_run_self/blastdb/human_parents/human
+
+# the genomic and gene sequences of the parents in the blast database
+# these directories must be filled with one file for every gene in the blast database
+
+parent_geno_seqs = /extra/pseudogene_run_self/human_parents/genomic
+parent_clone_seqs = /extra/pseudogene_run_self/human_parents/mRNA
+
+# target_seqdir contains the chromosome sequences for the target
+# for running whole chromosome files, this directory should contain repeatmasked sequences
+# of the format chrN.masked.fa as well as unmasked sequences chrN.fa
+
+target_seqdir = /bio/db/Homo_sapiens/assembly/hg17/chr_seq
+
+# locations of databases and files for the conserved_synteny
+# note: informant is the species that is used for the synteny map, eg mouse when
+# you are running the program for a human GTF file
+
+# informant_seqdir contains the chromosome sequences for the informant
+# in the format chrN.fa
+
+informant_seqdir = /extra/genomes/mouse/mm6
+
+# define locations of protein blast db and protein nt fasta files
+# prot_db contains a protein blast database of putative parent sequences
+# the program expects files named (blastfile).xps, (blastfile).xpd, (blastfile).xpt
+# the prot_locations_file contains the genomic locations of the proteins in the parent protein database
+# (ie every protein that is in the prot_db blast database) formatted like this:
+BC063682	chr1	4558	7173
+AL137714	chr1	7413	19346
+BC015400	chr1	4558	5808
+
+prot_db = /extra/pseudogene_run_self/blastdb/human_proteins/allprot_human.fas
+prot_locations_file = /extra/pseudogene_run_self/synteny/human/prot_locations.txt
+
+# Directory for protein sequences:program will write protein sequences of parent genes to this directory and use them
+# when running the program multiple times with the same informant genome, do not empty this directory: previously
+# created protein files will be reused, this saves time
+
+protein_sequences = /bio/exp/pseudogene_run/protein_seqs/human/
+
+# the prot_loc_inputdir is a directory with chromosome gtf files for all parent genes. This file is used
+# for getting the genomic sequences for the parent genes. The gtf files should be named chrN.gtf
+# where N is any chromosome listed in the second field of the prot_locations_file
+# and contain gtf information for all genes listed in the prot_locations_file
+
+prot_loc_inputdir = /extra/pseudogene_run_self/parent_locations/human
+
+# synteny directory must be filled with files named synteny_net_chrN.txt
+# and contain a synteny map formatted like
+chr10	128697	128820	chr13	3274052	9683921
+chr10	128843	128872	chr13	9683921	9683893
+chr10	128901	128994	chr13	9683893	9683803
+
+# meaning human chromosome 10 is syntenic with mouse chromosome 13 from XXX to YYY
+# these files can be downloaded using the get_synteny_tables.pl program, which retrieves them
+# from the UCSC browser
+synteny_dir = /extra/pseudogene_run_self/synteny/human
+
+# if you want to run twinscan, set this to twinscan or nscan, else to no
+run_gene_pred = nscan
+
+# location of twinscan parameterfiles and driver - not needed if run_twinscan is no
+
+genome_params = /bio/pkg/parameter/human/human-08-16-02.smat
+cons_params = /bio/pkg/twinscan/parameters/Mammal-conseq-121-fragments-strong-1-24-04
+
+# blast and driver options for twinscan
+
+extraparams = --nomask
+blastparams = default
+
+# the driver can also be /bio/bin/twinscan_driver.pl
+twinscan_driver = /home/bl/rhb/bin/nscan_short_driver.pl
+
+informant_blastdb = /extra/blastdb/mouse/mm6
+
+nscan_param_file = /bio/exp/rhb/hg17_multiz_mm5_params/nscan.hg17_multiz_mm5.zhmm
+iscan_param_file = /bio/pro/Homo_sapiens/assembly/hg17/nscan_mgc_1/zoe_nscan_mgc_1/iscan
+multispec_align_extension = hg17_multiz_mm5.align
+align_path = /bio/pro/Homo_sapiens/assembly/hg17/Nscan_mm5/chr_split/
+
