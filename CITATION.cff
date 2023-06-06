@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "J. van Baren"
+  given-names: "Marijke"
+title: "Iterative gene prediction and pseudogene removal improves genome annotation"
+version: 1.0.0
+doi: 10.1101/gr.4766206 
+date-released: 2006-05-16
+url: "https://genome.cshlp.org/content/16/5/678"
