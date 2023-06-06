@@ -1,0 +1,17 @@
+{
+  "title": "ppfinder",
+  "authors": [
+    {
+      "name": "Marijke J. van Baren"
+    }
+  ],
+  "description": "PPFINDER is a Perl-based procedure for finding processed pseudogenes in genome annotations (GTF format). PPFINDER identifies pseudogenes using two different methods, and creates a GTF file with pseudogene coordinates that can be used for masking the genome sequence.",
+  "version": "1.0",
+  "doi": "10.1101/gr.4766206",
+  "citation": "van Baren, M. J., & Brent, M. R. (2006). Iterative gene prediction and pseudogene removal improves genome annotation. Genome research, 16(5), 678-685.",
+  "keywords": ["gene", "pseudogene", "annotation"],
+  "license": "GPLv3",
+  "repository": {
+    "url": "https://github.com/BrentLab/ppfinder/tree/main"
+  }
+}
