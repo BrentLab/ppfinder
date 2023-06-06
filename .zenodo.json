@@ -10,7 +10,7 @@
         }
     ],
 
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
 
     "title": "Iterative gene prediction and pseudogene removal improves genome annotation",
 
