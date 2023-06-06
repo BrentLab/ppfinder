@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/650203349.svg)](https://zenodo.org/badge/latestdoi/650203349)
+
 This directory contains the PPFINDER executable and library files needed by the program. It also contains a copy of gtf2fa.pl, a program called by PPFINDER.
 PPFINDER needs a parameterfile as input. An example is parameter.file which should be changed to reflect the locations of all databases and programs needed. Please see explanatory text in parameter.file.
 The get_synteny_files.pl program can be used to retrieve and format synteny files for different combinations of organisms (see paramter.file for explanation).
