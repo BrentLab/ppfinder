@@ -14,8 +14,7 @@ N.pgene.reason : log file
 
 If the program fails, a detailed error message can be found in N.ERROR
 
-To run PPFINDER in gene prediction mode, N-SCAN or Twinscan must be installed. These programs can be downloaded from
-http://genes.cse.wustl.edu/BrentLab/MB-Lab-Software.html
+To run PPFINDER in gene prediction mode, N-SCAN or Twinscan must be installed. These programs can be downloaded [here](http://mblab.wustl.edu/software.html)
 
 PPFINDER can be easily modified to run with other gene predictors, providing their outputfiles are in GTF format. For details, see the comments in the script or contact the author:
 jeltje@cse.wustl.edu
